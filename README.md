@@ -1,0 +1,6 @@
+- MyCart
+- Favourite
+- Account
+- Checkout
+- SuccessOrder
+- FailedOrder

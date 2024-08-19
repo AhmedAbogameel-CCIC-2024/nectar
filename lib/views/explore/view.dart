@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nectar/core/extensions/num.dart';
-import 'package:nectar/core/utils/colors.dart';
 
 import '../../widgets/app/category_card.dart';
 import '../../widgets/app_app_bar.dart';

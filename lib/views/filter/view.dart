@@ -8,7 +8,6 @@ import 'package:nectar/widgets/app_button.dart';
 import 'package:nectar/widgets/app_text.dart';
 
 import '../../widgets/app/filter_check_box.dart';
-import '../../widgets/app_check_box.dart';
 
 class FilterView extends StatelessWidget {
   const FilterView({Key? key}) : super(key: key);

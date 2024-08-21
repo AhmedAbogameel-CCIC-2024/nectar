@@ -1,4 +1,3 @@
 - Favourite
 - Account
 - SuccessOrder
-- FailedOrder

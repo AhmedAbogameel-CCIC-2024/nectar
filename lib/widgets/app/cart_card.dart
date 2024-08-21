@@ -12,7 +12,6 @@ class CartCard extends StatefulWidget {
 }
 
 class _CartCardState extends State<CartCard> {
-
   int counter = 1;
 
   @override

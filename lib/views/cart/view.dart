@@ -22,7 +22,7 @@ class CartView extends StatelessWidget {
           children: [
             Expanded(
               child: ListView.separated(
-                itemCount: 10,
+                itemCount: 3,
                 itemBuilder: (context, index) {
                   return CartCard();
                 },

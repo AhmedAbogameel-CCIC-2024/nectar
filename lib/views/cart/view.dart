@@ -6,6 +6,7 @@ import 'package:nectar/widgets/app_button.dart';
 import 'package:nectar/widgets/app_text.dart';
 
 import '../../widgets/app/cart_card.dart';
+import '../checkout/view.dart';
 
 class CartView extends StatelessWidget {
   const CartView({Key? key}) : super(key: key);
@@ -37,7 +38,7 @@ class CartView extends StatelessWidget {
               children: [
                 AppButton(
                   title: 'Go to Checkout',
-                  onTap: () {},
+                  onTap: () => CheckoutView().show(context),
                 ),
                 Positioned(
                   top: 0,

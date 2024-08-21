@@ -4,8 +4,16 @@ import 'package:nectar/core/extensions/num.dart';
 import 'package:nectar/core/utils/colors.dart';
 import 'package:nectar/widgets/app_text.dart';
 
-class CartCard extends StatelessWidget {
+class CartCard extends StatefulWidget {
   const CartCard({Key? key}) : super(key: key);
+
+  @override
+  State<CartCard> createState() => _CartCardState();
+}
+
+class _CartCardState extends State<CartCard> {
+
+  int counter = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -49,9 +57,10 @@ class CartCard extends StatelessWidget {
                   _CounterButton(
                     icon: FontAwesomeIcons.minus,
                     iconColor: AppColors.grey,
+                    onTap: counter <= 1 ? null : () => setState(() => counter--),
                   ),
                   AppText(
-                    title: '1',
+                    title: '$counter',
                     fontSize: 16.font,
                     fontWeight: FontWeight.w600,
                     padding: EdgeInsets.symmetric(horizontal: 16.width),
@@ -59,6 +68,7 @@ class CartCard extends StatelessWidget {
                   _CounterButton(
                     icon: FontAwesomeIcons.plus,
                     iconColor: AppColors.primary,
+                    onTap: () => setState(() => counter++),
                   ),
                   Expanded(
                     child: AppText(
@@ -83,25 +93,31 @@ class _CounterButton extends StatelessWidget {
     Key? key,
     required this.icon,
     required this.iconColor,
+    required this.onTap,
   }) : super(key: key);
 
   final IconData icon;
   final Color iconColor;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 44.width,
-      height: 44.height,
-      child: Icon(
-        icon,
-        color: iconColor,
-        size: 20.height,
-      ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16.radius),
-        border: Border.all(
-          color: AppColors.grey.withOpacity(0.4),
+    return InkWell(
+      borderRadius: BorderRadius.circular(16.radius),
+      onTap: onTap,
+      child: Container(
+        width: 44.width,
+        height: 44.height,
+        child: Icon(
+          icon,
+          color: iconColor,
+          size: 20.height,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16.radius),
+          border: Border.all(
+            color: AppColors.grey.withOpacity(0.4),
+          ),
         ),
       ),
     );

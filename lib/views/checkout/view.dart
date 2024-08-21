@@ -7,6 +7,8 @@ import 'package:nectar/core/utils/colors.dart';
 import 'package:nectar/widgets/app_button.dart';
 import 'package:nectar/widgets/app_text.dart';
 
+import '../../widgets/app/failed_order_dialog.dart';
+
 class CheckoutView extends StatelessWidget {
   const CheckoutView({Key? key}) : super(key: key);
 
@@ -100,7 +102,10 @@ class CheckoutView extends StatelessWidget {
           SizedBox(height: 20.height),
           AppButton(
             title: 'Place Order',
-            onTap: () {},
+            onTap: () {
+              RouteUtils.pop(context);
+              FailedOrderDialog().show(context);
+            },
           ),
         ],
       ),

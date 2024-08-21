@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 import '../core/utils/colors.dart';
 
@@ -15,6 +16,7 @@ class AppText extends StatelessWidget {
     this.textAlign,
     this.maxLines,
     this.overflow,
+    this.padding = EdgeInsets.zero,
   }) : super(key: key);
 
   final String title;
@@ -27,22 +29,26 @@ class AppText extends StatelessWidget {
   final TextAlign? textAlign;
   final int? maxLines;
   final TextOverflow? overflow;
+  final EdgeInsetsGeometry padding;
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Text(
-        title,
-        textAlign: textAlign,
-        maxLines: maxLines,
-        overflow: overflow,
-        style: TextStyle(
-          fontWeight: fontWeight,
-          fontSize: fontSize,
-          color: color,
-          decoration: decoration,
-          height: height != null ? height! / fontSize : null,
+    return Padding(
+      padding: padding,
+      child: InkWell(
+        onTap: onTap,
+        child: Text(
+          title,
+          textAlign: textAlign,
+          maxLines: maxLines,
+          overflow: overflow,
+          style: TextStyle(
+            fontWeight: fontWeight,
+            fontSize: fontSize,
+            color: color,
+            decoration: decoration,
+            height: height != null ? height! / fontSize : null,
+          ),
         ),
       ),
     );
